@@ -36,6 +36,11 @@ jobs:
           pip install robotframework
           pip install robotframework-seleniumlibrary
           pip install robotframework-faker
+
+
+      - name: Garantir pasta de resultados mesmo se os testes falharem
+        run: mkdir -p results/
+        if: always()
  
 
       - name: Etapa 4 - Executar Testes Web do Robot Framework
