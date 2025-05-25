@@ -12,6 +12,7 @@ jobs:
       contents: read
       pages: write
       id-token: write
+    
     environment:
       name: github-pages
       url: https://jvluzc.github.io/qa-orangehrm-automation-joao-vitor-condidorio/report.html
@@ -38,27 +39,19 @@ jobs:
           pip install robotframework-faker
 
 
-      - name: Etapa 4 - Criar pasta de resultados
+      - name: Etapa 4 - Criar Pasta de Resultados
         run: mkdir -p results/
         if: always()
  
 
       - name: Etapa 5 - Executar Testes Web do Robot Framework
         # run: echo Executando os testes de API do Robot
-        continue-on-error: true  # não falha o job aqui
+        continue-on-error: true
         run: |
           robot --outputdir results/ tests/
 
-      
-      # - name: Etapa 5.5 - Criar um report.html falso se não foi gerado
-      #   if: always()
-      #   run: |
-      #     if [ ! -f results/report.html ]; then
-      #       echo "<html><body><h1 style='color:red'>❌ Nenhum relatório gerado</h1><p>Os testes falharam antes da geração do relatório. Verifique os logs da pipeline no GitHub Actions.</p></body></html>" > results/report.html
-      #     fi
 
-
-      - name: Etapa 6 - Salvar Relatórios dos Testes Executados
+      - name: Etapa 6 - Salvar Relatórios dos Testes Executados em Actions
         # run: echo Salvando o Report dos Testes
         uses: actions/upload-artifact@v4
         if: always()
