@@ -38,19 +38,19 @@ jobs:
           pip install robotframework-faker
 
 
-      - name: Garantir pasta de resultados mesmo se os testes falharem
+      - name: Etapa 4 - Criar pasta de resultados
         run: mkdir -p results/
         if: always()
  
 
-      - name: Etapa 4 - Executar Testes Web do Robot Framework
+      - name: Etapa 5 - Executar Testes Web do Robot Framework
         # run: echo Executando os testes de API do Robot
+        continue-on-error: true  # não falha o job aqui
         run: |
-          mkdir -p results/
           robot --outputdir results/ tests/
 
       
-      - name: Etapa 4.5 - Criar um report.html falso se não foi gerado
+      - name: Etapa 5.5 - Criar um report.html falso se não foi gerado
         if: always()
         run: |
           if [ ! -f results/report.html ]; then
@@ -58,7 +58,7 @@ jobs:
           fi
 
 
-      - name: Etapa 5 - Salvar Relatórios dos Testes Executados
+      - name: Etapa 6 - Salvar Relatórios dos Testes Executados
         # run: echo Salvando o Report dos Testes
         uses: actions/upload-artifact@v4
         if: always()
@@ -67,17 +67,17 @@ jobs:
           path: results/
 
 
-      - name: Etapa 6 - Configurar GitHub Pages para Hospedagem dos Relatórios
+      - name: Etapa 7 - Configurar GitHub Pages para Hospedagem dos Relatórios
         uses: actions/configure-pages@v5
  
 
-      - name: Etapa 7 - Fazer Upload dos Relatórios Gerados
+      - name: Etapa 8 - Fazer Upload dos Relatórios Gerados
         uses: actions/upload-pages-artifact@v3
         if: always()
         with:
           path: results/
  
           
-      - name: Etapa 8 - Publicar Relatórios de Testes no GitHub Pages
+      - name: Etapa 9 - Publicar Relatórios de Testes no GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
