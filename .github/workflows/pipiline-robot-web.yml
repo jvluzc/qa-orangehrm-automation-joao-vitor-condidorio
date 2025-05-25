@@ -14,7 +14,7 @@ jobs:
       id-token: write
     environment:
       name: github-pages
-     # url: https://jvluzc.github.io/ronbugado-academy12.2-front-robot/report.html
+      url: https://jvluzc.github.io/qa-orangehrm-automation-joao-vitor-condidorio/report.html
 
     steps:
       - name: Etapa 1 - Clonar Repositório do Projeto para a Máquina Virtual do GitHub Actions
