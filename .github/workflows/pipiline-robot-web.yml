@@ -66,3 +66,4 @@ jobs:
       - name: Etapa 8 - Publicar Relatórios de Testes no GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        
