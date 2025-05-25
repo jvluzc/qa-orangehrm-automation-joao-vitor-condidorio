@@ -36,11 +36,6 @@ jobs:
           pip install robotframework
           pip install robotframework-seleniumlibrary
           pip install robotframework-faker
-
-
-      # - name: Setup ChromeDriver
-      #   # run: echo Instalando o ChromeDriver compatível com a versão do Chrome no ubuntu-latest
-      #   uses: browser-actions/setup-chromedriver@v1 
  
 
       - name: Etapa 4 - Executar Testes Web do Robot Framework
