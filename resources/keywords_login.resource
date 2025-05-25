@@ -13,10 +13,9 @@ ${areaUsuario}     css=.oxd-userdropdown-name
 
 *** Keywords ***
 Abrir o navegador e Acessar url
-  # pra abir o navegador é só substituir a primeira linha abaixo por = Open Browser  browser=chrome
+  # pra abir o navegador é só substituir a primeira linha abaixo por = Open Browser    ${urlBase}    chrome
   # pra não abir o navegador é só substituir a primeira linha abaixo por = Open Browser    ${urlBase}    headlesschrome
-  #Open Browser    ${urlBase}    chrome    options=add_argument(--headless)
-  Open Browser    ${urlBase}    chrome
+  Open Browser    ${urlBase}    headlesschrome
   Maximize Browser Window
 
 Fechar o navegador

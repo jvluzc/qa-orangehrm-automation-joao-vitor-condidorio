@@ -35,6 +35,14 @@ jobs:
           pip install setuptools
           pip install robotframework
           pip install robotframework-seleniumlibrary
+          pip install robotframework-faker
+
+
+      - name: Setup ChromeDriver
+        # run: echo Instalando o ChromeDriver compatível com a versão do Chrome no ubuntu-latest
+        uses: nanasess/setup-chromedriver@v1
+        with:
+          chromedriver-version: latest    
  
 
       - name: Etapa 4 - Executar Testes Web do Robot Framework
@@ -66,4 +74,3 @@ jobs:
       - name: Etapa 8 - Publicar Relatórios de Testes no GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        

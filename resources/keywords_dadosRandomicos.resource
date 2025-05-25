@@ -27,9 +27,9 @@ Gerar Dados Randomicos Para Novo Usuario
 Generate Random Employee ID
     ${id}=    Generate Random String    12    [NUMBERS]
     ${full_id}=    Set Variable    ID${id}
-    [Return]    ${full_id}
+    RETURN    ${full_id}
 
 Generate Senha Segura
     ${senha}=    Generate Random String    8    [LETTERS][NUMBERS]
     ${senha_final}=    Set Variable    ${senha}Ab@!
-    [Return]    ${senha_final}
+    RETURN    ${senha_final}
