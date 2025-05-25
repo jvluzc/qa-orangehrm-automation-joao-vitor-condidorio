@@ -13,15 +13,15 @@ CT1: Login bem-sucedido com as credenciais fornecidas
   Aguardar tela de login visível
   Digitar e-mail e senha
     ...    Adminasd   
-    ...    admin123
+    ...    admin12345
   Clicar no botão ENTRAR
   Validar que estou na area logada do sistema
 
 CT2: Sair do sistema após o login
   Aguardar tela de login visível
   Digitar e-mail e senha
-    ...    Admin   
-    ...    admin123
+    ...    Admin323   
+    ...    admin123dds
   Clicar no botão ENTRAR
   Validar que estou na area logada do sistema
   Logout do sistema
