@@ -12,16 +12,16 @@ Documentation   Casos de Testes Obrigatórios para o Teste Tenico
 CT1: Login bem-sucedido com as credenciais fornecidas
   Aguardar tela de login visível
   Digitar e-mail e senha
-    ...    Admin  
-    ...    admin123
+    ...    Admindf22  
+    ...    admin123ds32
   Clicar no botão ENTRAR
   Validar que estou na area logada do sistema
 
 CT2: Sair do sistema após o login
   Aguardar tela de login visível
   Digitar e-mail e senha
-    ...    Admin
-    ...    admin123
+    ...    Admin334
+    ...    admin12334fd
   Clicar no botão ENTRAR
   Validar que estou na area logada do sistema
   Logout do sistema
