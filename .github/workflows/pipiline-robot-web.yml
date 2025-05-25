@@ -40,14 +40,13 @@ jobs:
 
       - name: Setup ChromeDriver
         # run: echo Instalando o ChromeDriver compatível com a versão do Chrome no ubuntu-latest
-        uses: nanasess/setup-chromedriver@v1
-        with:
-          chromedriver-version: latest    
+        uses: browser-actions/setup-chromedriver@v1 
  
 
       - name: Etapa 4 - Executar Testes Web do Robot Framework
         # run: echo Executando os testes de API do Robot
         run: |
+          mkdir -p results/
           robot --outputdir results/ tests/
 
 
