@@ -2,8 +2,6 @@
 Library        SeleniumLibrary
 Documentation  Keywords relacioandas a feature de Criação de Novo Usuário
 
-#robot -d results .\tests\
-
 *** Variables ***
 #Menu de Navegação
 ${Pim}         xpath=//a[contains(@class, 'oxd-main-menu-item') and contains(., 'PIM')]
@@ -13,11 +11,6 @@ ${textAddEmployee}     xpath=//h6[text()='Add Employee']
 ${firstNameInput}       xpath=//input[@name='firstName']
 ${middleNameInput}     xpath=//input[@name='middleName']
 ${lastNameInput}       xpath=//input[@name='lastName']
-# ${employeeIDInput}     xpath=//label[text()='Employee Id']/ancestor::div[contains(@class, 'oxd-input-group')]//input
-# ${createLoginSelect}    xpath=//div[contains(@class, 'oxd-switch-wrapper')]//span[contains(@class, 'oxd-switch-input')]
-# ${createUsernameInput}  xpath=(//input[@autocomplete='off' and contains(@class, 'oxd-input')])[1]
-# ${passwordInput}        xpath=(//input[@autocomplete='off' and contains(@class, 'oxd-input')])[2]
-# ${confirmPasswordInput}  xpath=(//input[@autocomplete='off' and contains(@class, 'oxd-input')])[3]
 ${saveButton}           xpath=//button[@type='submit' and contains(., 'Save')]
 ${msgSucess}            xpath=//p[text() = 'Success']
 
@@ -39,29 +32,16 @@ Acessar a tela de criação de novo usuário
   Capture Page Screenshot
 
 Criar Novo Usuário
-    [Arguments]    ${first_name}    ${middle_name}    ${last_name}    ${employee_id}    ${username}    ${password}    ${confirm_password}
+    [Arguments]    ${first_name}    ${middle_name}    ${last_name}
     ${nome_completo}=    Set Variable    ${first_name} ${middle_name}
     Set Suite Variable    ${nome_completo}
     Input Text       ${firstNameInput}          ${first_name}
     Input Text       ${middleNameInput}        ${middle_name}
     Input Text       ${lastNameInput}          ${last_name}
     Capture Page Screenshot
-    # ${id_armazenado}=    Set Variable    ${employeeIDInput}
-    # Set Suite Variable   ${id_armazenado}
-    # Log    ${id_armazenado}
-    # Capture Page Screenshot
-
-    # Click Element    ${createLoginSelect}
-    # Wait Until Element Is Visible    ${createUsernameInput}   timeout=10s
-    # Input Text       ${createUsernameInput}    ${username}
-    # Execute JavaScript    document.body.style.zoom='70%'
-    # Input Text       ${passwordInput}          ${password}
-    # Input Text       ${confirmPasswordInput}   ${confirm_password}
-    #Capture Page Screenshot
     Click Button     ${saveButton}
 
 Validar mensagem de usuário criado com sucesso
   Wait Until Element Is Visible  ${msgSucess}    timeout=15s
   Element Text Should Be         ${msgSucess}    Success
   Capture Page Screenshot
-

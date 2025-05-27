@@ -29,9 +29,10 @@ CT2: Sair do sistema após o login
 
 CT3: Login inválido com mensagem de erro validada
   Aguardar tela de login visível
+  Gerar Dados Randomicos Para Login
   Digitar e-mail e senha
-    ...    UsuárioInválido321
-    ...    SenhaInválida321
+    ...    ${EMAIL_RANDOMICO}
+    ...    ${SENHA_RANDOMICA}
   Clicar no botão ENTRAR
   Validar mensagem de erro para credenciais inválidas
 
@@ -49,12 +50,8 @@ CT4: Cadastro de novo funcionário através do menu PIM > Adicionar Funcionário
     ...    ${first_name}
     ...    ${middle_name}
     ...    ${last_name}
-    ...    ${employee_id}
-    ...    ${username}
-    ...    ${password}
-    ...    ${password_confirm}
   Validar mensagem de usuário criado com sucesso
-
+  
 CT5: Busca pelo funcionário recém-cadastrado no PIM > Lista de Funcionários
   Aguardar tela de login visível
   Digitar e-mail e senha
@@ -69,10 +66,6 @@ CT5: Busca pelo funcionário recém-cadastrado no PIM > Lista de Funcionários
     ...    ${first_name}
     ...    ${middle_name}
     ...    ${last_name}
-    ...    ${employee_id}
-    ...    ${username}
-    ...    ${password}
-    ...    ${password_confirm}
   Validar mensagem de usuário criado com sucesso
   Selecionar opção 'PIM' no menu de navegação e validar redirecionamento para a tela PIM
   Pesquisar pelo Nome de Usuário Cadastrado na busca de usuarios

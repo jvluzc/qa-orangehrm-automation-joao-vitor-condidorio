@@ -1,35 +1,83 @@
-# 📦 Instalação e Dependências
 
-Este projeto utiliza o **Robot Framework** para automação de testes Web (com Selenium) e API (com Requests).  
-Abaixo estão listadas todas as dependências necessárias para configurar e executar o projeto localmente.
+# Projeto de Automação com Robot Framework
 
----
-
-## ✅ Requisitos do Ambiente
-
-- **Python**: `3.13.3`  
-  [🔗 Download Python](https://www.python.org/downloads/release/python-3133/)
-
-- **Google Chrome**: instalado na máquina  
-  > Versão usada nos testes: `136.0.198.0`
-
-- **ChromeDriver**: `136.0.7103.113`  
-  [🔗 Baixar ChromeDriver (Chrome for Testing)](https://googlechromelabs.github.io/chrome-for-testing/)  
-  O executável `chromedriver.exe` deve estar em uma pasta incluída na variável de ambiente `PATH`  
-  (ex: dentro da pasta `Scripts` do Python).
+Automação de testes para aplicação **OrangeHRM** usando Robot Framework com SeleniumLibrary e FakerLibrary para geração de dados randômicos.
 
 ---
 
-## 📦 Instalação das Dependências
+## Estrutura do Projeto
 
-Instale as bibliotecas com os comandos abaixo:
+- **resources/**  
+  Contém arquivos com keywords específicas, organizadas por funcionalidades (login, criação de usuário, listagem de usuários, dados randômicos, etc).
+
+- **tests/**  
+  Casos de teste escritos em Robot Framework, integrando os keywords dos resources.
+
+- **results/**  
+  Pasta onde os relatórios, logs e screenshots gerados após a execução dos testes são armazenados (esta pasta está no `.gitignore`).
+
+- **.gitignore**  
+  Ignora a pasta `results/` para não versionar arquivos gerados durante os testes.
+
+---
+
+## Bibliotecas Utilizadas
+
+- [SeleniumLibrary](https://robotframework.org/SeleniumLibrary/) - Automação de testes web via Selenium.
+- [FakerLibrary](https://github.com/boakley/robotframework-fakerlibrary) - Geração de dados randômicos para testes.
+- [String](https://robotframework.org/robotframework/latest/libraries/String.html) - Manipulação de strings.
+- [BuiltIn](https://robotframework.org/robotframework/latest/libraries/BuiltIn.html) - Palavras-chave internas do Robot Framework.
+
+---
+
+## Como Executar os Testes
+
+1. Clone o repositório:
 
 ```bash
-# Instala ou atualiza o Robot Framework
-pip install -U robotframework
+git clone <url-do-repositorio>
+cd <nome-do-repositorio>
+```
 
-# Instala ou atualiza a biblioteca para testes Web
-pip install -U robotframework-seleniumlibrary
+2. Instale as dependências:
 
-# Instala ou atualiza a biblioteca para testes de API REST
-pip install -U robotframework-requests
+```bash
+pip install robotframework
+pip install robotframework-seleniumlibrary
+pip install robotframework-fakerlibrary
+pip install selenium
+```
+
+3. Execute os testes (na pasta raiz do projeto):
+
+```bash
+robot -d results tests/
+```
+
+Isso executará todos os testes da pasta `tests/` e salvará os relatórios na pasta `results/`.
+
+---
+
+## Testes Implementados
+
+- **CT1:** Login bem-sucedido com credenciais válidas.
+- **CT2:** Logout após login bem-sucedido.
+- **CT3:** Login inválido com validação de mensagem de erro.
+- **CT4:** Cadastro de novo funcionário pelo menu PIM.
+- **CT5:** Busca do funcionário recém-cadastrado na lista de usuários.
+
+---
+
+## Boas Práticas
+
+- A pasta `results/` está no `.gitignore` para evitar versionamento dos arquivos gerados.
+- Uso de keywords customizados para melhor reaproveitamento e organização.
+- Geração de dados randômicos para evitar conflitos em testes de cadastro.
+- Captura de screenshots em passos chave para facilitar análise de falhas.
+
+---
+
+## Contato
+
+Em caso de dúvidas ou sugestões, entre em contato:  
+João Vitor Condidorio - joaovitorluz010@gmail.com

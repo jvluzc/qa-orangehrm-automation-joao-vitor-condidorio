@@ -12,24 +12,28 @@ Gerar Dados Randomicos Para Novo Usuario
     ${first_name}=    FakerLibrary.First Name
     ${middle_name}=   FakerLibrary.First Name
     ${last_name}=     FakerLibrary.Last Name
-    ${employee_id}=   Generate Random Employee ID
-    ${username}=      Set Variable    ${first_name}${last_name}_User
-    ${password}=      Generate Senha Segura
 
     Set Suite Variable    ${first_name}
     Set Suite Variable    ${middle_name}
     Set Suite Variable    ${last_name}
-    Set Suite Variable    ${employee_id}
-    Set Suite Variable    ${username}
-    Set Suite Variable    ${password}
-    Set Suite Variable    ${password_confirm}    ${password}
 
-Generate Random Employee ID
-    ${id}=    Generate Random String    12    [NUMBERS]
-    ${full_id}=    Set Variable    ID${id}
-    RETURN    ${full_id}
+Gerar Email Aleatorio
+    ${prefix}=    Generate Random String    8    [LETTERS]
+    ${domain}=    Set Variable    exemplo.com
+    ${email}=     Catenate    SEPARATOR=@    ${prefix}    ${domain}
+    [Return]      ${email}
 
-Generate Senha Segura
-    ${senha}=    Generate Random String    8    [LETTERS][NUMBERS]
-    ${senha_final}=    Set Variable    ${senha}Ab@!
-    RETURN    ${senha_final}
+Gerar Senha Aleatoria
+    ${maiuscula}=      Generate Random String    1    [UPPER]
+    ${minuscula}=      Generate Random String    1    [LOWER]
+    ${numero}=         Generate Random String    1    [NUMBERS]
+    ${especial}=       Generate Random String    1    @$%*!?
+    ${restante}=       Generate Random String    6    [LETTERS][NUMBERS]
+    ${senha}=          Catenate    ${maiuscula}${minuscula}${numero}${especial}${restante}
+    [Return]           ${senha}
+
+Gerar Dados Randomicos Para Login
+    ${email}=     Gerar Email Aleatorio
+    ${senha}=     Gerar Senha Aleatoria
+    Set Suite Variable    ${EMAIL_RANDOMICO}    ${email}
+    Set Suite Variable    ${SENHA_RANDOMICA}    ${senha}

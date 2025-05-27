@@ -3,7 +3,6 @@ Library        SeleniumLibrary
 Resource        ../resources/keywords_criarUsuario.resource
 Documentation  Keywords relacioandas a feature de Listar Usuários
 
-
 *** Variables ***
 #Criar Usuário
 ${textEmployeeInformation}   xpath=//h5[contains(@class, 'oxd-table-filter-title') and normalize-space(.)='Employee Information']
