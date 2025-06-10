@@ -74,3 +74,4 @@ jobs:
       - name: Etapa 9 - Publicar Relatórios de Testes no GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        
